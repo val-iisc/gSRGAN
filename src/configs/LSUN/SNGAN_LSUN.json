@@ -1,0 +1,136 @@
+{
+    "data_processing":{
+      "dataset_name": "lsun",
+      "data_path": "../lsun_dataset",
+      "evaluation_checkpoint":false,
+      "per_samples":25,
+      "imb_factor": 0.01,
+      "img_size": 64,
+      "num_classes": 5,
+      "batch_size4prcsing": 256,
+      "sn_batchnorm": false,
+      "chunk_size": 500,
+      "compression": false,
+      "sn_regularize": true,
+      "fro_regularize": false,
+      "beta":0.999,
+      "sn_reg_weight":0.5,
+      "num_power_iter":4,
+      "shuffle_emb" : false,
+      "group_whitening":false,
+      "class_balanced_loss_based_on_effective_number_of_samples": true,
+      "imbalanced_cifar10": false,
+      "imbalanced_cifar100": false,
+      "imbalanced_lsun":true,
+      "bool_profiler":false,
+      "bool_tensorboard_plots":true
+    },
+  
+    "train": {
+      "model": {
+        "architecture": "resnet",
+        "conditional_strategy": "ProjGAN",
+        "pos_collected_numerator": false,
+        "hypersphere_dim": "N/A",
+        "nonlinear_embed": false,
+        "normalize_embed": false,
+        "g_spectral_norm": false,
+        "d_spectral_norm": true,
+        "activation_fn": "ReLU",
+        "attention": false,
+        "attention_after_nth_gen_block": "N/A",
+        "attention_after_nth_dis_block": "N/A",
+        "z_dim": 128,
+        "shared_dim": "N/A",
+        "g_conv_dim": 64,
+        "d_conv_dim": 64,
+        "G_depth": "N/A",
+        "D_depth": "N/A",
+        "load_current": true,
+        "aux_disc": ""
+      },
+  
+      "optimization": {
+        "optimizer": "Adam",
+        "batch_size": 64,
+        "accumulation_steps": 1,
+        "d_lr": 0.0002,
+        "g_lr": 0.0002,
+        "momentum": "N/A",
+        "nesterov": "N/A",
+        "alpha": "N/A",
+        "beta1": 0.5,
+        "beta2": 0.9,
+        "g_steps_per_iter": 1,
+        "d_steps_per_iter": 5,
+        "total_step": 120000
+      },
+  
+      "loss_function": {
+        "bool_param_plot":true,
+        "plot_param":10000,
+        "plot_discriminator_predictions":false,
+        "lc_regularizer": true,
+        "lc_lambda": 0.3,
+        "lc_gamma": 0.99,
+        "adv_loss": "hinge",
+        "contrastive_lambda": "N/A",
+        "margin": "N/A",
+        "tempering_type": "N/A",
+        "tempering_step": "N/A",
+        "start_temperature": "N/A",
+        "end_temperature": "N/A",
+  
+        "weight_clipping_for_dis": false,
+        "weight_clipping_bound": "N/A",
+  
+        "gradient_penalty_for_dis": false,
+        "gradient_penalty_lambda": 5,
+  
+        "deep_regret_analysis_for_dis": false,
+        "regret_penalty_lambda": "N/A",
+  
+        "cr": false,
+        "cr_lambda": 10,
+  
+        "bcr": false,
+        "real_lambda": 10,
+        "fake_lambda": 5,
+  
+        "zcr": false,
+        "gen_lambda": 0.5,
+        "dis_lambda": 20,
+        "sigma_noise": 0.07
+      },
+  
+      "initialization":{
+        "g_init": "ortho",
+        "d_init": "ortho"
+      },
+  
+      "training_and_sampling_setting":{
+        "random_flip_preprocessing": true,
+        "diff_aug": true,
+  
+        "ada": false,
+        "ada_target": "N/A",
+        "ada_length": "N/A",
+  
+        "prior": "gaussian",
+        "truncated_factor": 1,
+  
+        "latent_op": false,
+        "latent_op_rate":"N/A",
+        "latent_op_step":"N/A",
+        "latent_op_step4eval":"N/A",
+        "latent_op_alpha":"N/A",
+        "latent_op_beta":"N/A",
+        "latent_norm_reg_weight":"N/A",
+  
+        "ema": false,
+        "ema_decay": "N/A",
+        "ema_start": "N/A"
+      }
+    }
+  }
+  
