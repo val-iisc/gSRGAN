@@ -7,10 +7,12 @@ This repository contains code for the paper the paper:
 Indian Institute of Science, Google Research  
 *European Conference on Computer Vision (ECCV) 2022*
 
+![image info](./docs/CVPR22_OverviewFig_GitHub.png)
+
 Deep long-tailed learning aims to train useful deep networks on practical, real-world imbalanced distributions, wherein most labels of the tail classes are associated with a few samples. There has been a large body of work to train discriminative models for visual recognition on long-tailed distribution. In contrast, we aim to train conditional Generative Adversarial Networks, a class of image generation models on long-tailed distributions. We find that similar to recognition, state-of-the-art methods for image generation also suffer from performance degradation on tail classes. The performance degradation is mainly due to class-specific mode collapse for tail classes, which we observe to be correlated with the spectral explosion of the conditioning parameter matrix. We propose a novel group Spectral Regularizer (gSR) that prevents the spectral explosion alleviating mode collapse, which results in diverse and plausible image generation even for tail classes. We find that gSR effectively combines with existing augmentation and regularization techniques, leading to state-of-the-art image generation performance on long-tailed data. Extensive experiments demonstrate the efficacy of our regularizer on long-tailed datasets with different degrees of imbalance.
 
 
-![image info](./docs/CVPR22_OverviewFig.png)
+
 
 
 
@@ -30,7 +32,7 @@ conda env create -f environment.yml -n gsrgan
 ``
 
 ## Running Experiments of Paper
-We provide examples of running the experiments for CIFAR-10 dataset. For other datasets the experiments can be run similarly by changing the path to appropriate configuration present in ``src/configs``. Our code base currently supports SNGAN and BigGAN architectures.
+We provide examples of running the experiments for CIFAR-10 dataset. For other datasets the experiments can be run similarly by changing the path to appropriate configuration present in ``src/configs``. Our code base currently supports SNGAN and BigGAN architectures. We apply the state-of-the-art **LeCam and DiffAugment** regularization to obtain competent baselines.
 
 ### SNGAN
 
@@ -47,7 +49,7 @@ For running the proposed SNGAN with gSR use the command:
 ``python3 src/main.py -t -e --config_path ./src/configs/CIFAR10/BigGAN.json
 ``
 
-For running the baseline experiments please set ``sn_regularize=false`` in the configuration files of the corresponding experiments. The majority of implementation of gSR is present in the file ``src/utils/model_ops.py``.
+For running the baseline experiments please set ``sn_regularize=false`` in the configuration files of the corresponding experiments. 
 
 ### Evaluation
 
@@ -56,7 +58,7 @@ For evaluation make the ``evaluation_checkpoint=True`` in configuration and spec
 
 
 ## Notes on Implementation
-We have commented ``## Added `` for all the code addition done by the authors.
+We have commented ``## Added `` for all the code addition done by the authors. The majority of implementation of gSR is present in the file ``src/utils/model_ops.py``.
 
 ## Acknowledgments and References
 We thank the creators of awesome repository of [PyTorchStudioGAN]( https://github.com/POSTECH-CVLab/PyTorch-StudioGAN) on which our implementation is based on. 
