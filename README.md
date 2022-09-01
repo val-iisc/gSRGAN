@@ -27,6 +27,7 @@ For iNaturalist2019 dataset please download the files from the following link: [
 
 ## Requirements
 For installing all the requirements use the following command:
+
 ``
 conda env create -f environment.yml -n gsrgan
 ``
