@@ -1,5 +1,5 @@
 # Group Spectral Regularization for GANS
-This repository contains code for the paper the paper:
+This repository contains code for the paper:
 
 **Improving GANs for Long-Tailed Data through Group Spectral Regularization**  
 [[Paper](https://arxiv.org/abs/2208.09932)][[ProjectPage](https://sites.google.com/view/gsr-eccv22)]  
